@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Ludo Game </title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/jscript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/jscript" src="js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <!--    Header: Name of the Game-->
+    <header>
+        <h1> LUDO GAME </h1>
+    </header>
+
+    <!--    NAV BAR: Start Button-->
+    <nav>
+        <h5>READY TO PLAY? Push START.</h5>
+        <button class="play"> START!!</button>
+    </nav>
+
+
+    <section>
+        <!--Aside Bar: For the dice-->
+        <aside>
+            <!--Dice Div-->
+            <div class="dice">
+                <h5>ROLL THE DICE TO PLAY. </h5>
+                <!--<img class="diceImg" src="img/d6.png" onclick="randomNumber()" />-->
+                <h5> RULES FOR THE GAME:</h5>
+                <p> 1. Each player rolls the die; the highest roller begins the game. <br>
+                    2. Players alternate turns in a clockwise direction. <br>
+                    3. To enter a token into play from its yard to its starting square, a player must roll a 6.<br>
+                    4. The player can draw a token from home every time he gets a 6 unless home is empty or move a piece 6 times.<br>
+                    5. If the player has no tokens yet in play and rolls other than a 6, the turn passes to the next player.<br>
+                    6. Passes are not allowed; if no move is possible, the turn moves to the next player.<br>
+                    7. If the player cannot draw a token from home, rolling a 6 earns the player an additional or "bonus" roll in that turn. <br>
+                    8. If the bonus roll results in a 6 again, the player earns again an additional bonus roll.If the third roll is also a 6, the player may not move and the turn immediately passes to the next player.<br>
+
+                </p>
+            </div>
+        </aside>
+
+        <article>
+            <!--Ludo Board container-->
+            <div class="container">
+
+                <!--            Red container -->
+                <div class="redbox innerbox thisUserTurn">
+                    <!--                White container within the Red box-->
+                    <div class="inner-container">
+                        <div class="redtoken player one">
+                        </div>
+                        <div class="redtoken player two">
+                        </div>
+                        <div class="redtoken player three">
+                        </div>
+                        <div class="redtoken player four">
+                        </div>
+                    </div>
+                </div>
+
+                <!--            Blue container -->
+                <div class="bluebox innerbox">
+                    <!--                White container within the Blue box-->
+                    <div class="inner-container">
+                        <div class="bluetoken player one">
+                        </div>
+                        <div class="bluetoken player two">
+                        </div>
+                        <div class="bluetoken player three">
+                        </div>
+                        <div class="bluetoken player four">
+                        </div>
+                    </div>
+                </div>
+
+                <!--            Green container -->
+                <div class="greenbox innerbox">
+                    <!--                White container within the Green box-->
+                    <div class="inner-container">
+                        <div class="greentoken player one">
+                        </div>
+                        <div class="greentoken player two">
+                        </div>
+                        <div class="greentoken player three">
+                        </div>
+                        <div class="greentoken player four">
+                        </div>
+                    </div>
+                </div>
+
+                <!--            Yellow container -->
+                <div class="yellowbox innerbox">
+                    <!--                White container within the yellow box-->
+                    <div class="inner-container">
+
+                        <div class="yellowtoken player one">
+                        </div>
+                        <div class="yellowtoken player two">
+                        </div>
+                        <div class="yellowtoken player three">
+                        </div>
+                        <div class="yellowtoken player four">
+                        </div>
+                    </div>
+                </div>
+
+                <!--            Step boxes between Red and Blue -->
+                <div class="box1 boxstyle"></div>
+
+                <!--            Step boxes between Blue and Yellow -->
+                <div class="box2 boxstyle"></div>
+
+                <!--            Step boxes between Yellow and Green -->
+                <div class="box3 boxstyle"></div>
+
+                <!--            Step boxes between Green and Red -->
+                <div class="box4 boxstyle"></div>
+
+                <!--            Center Box-->
+                <div class="center boxstyle">
+                    <img class="diceImg" src="img/d6.png" onclick="randomNumber()" />
+                </div>
+
+            </div>
+        </article>
+    </section>
+
+    <!--    </div>-->
+    <!--    <footer> CopyRight © 2020: Balpreet Kaur </footer>-->
+
+</body>
+
+</html>
