@@ -2,13 +2,18 @@ body {
     background-color: cornsilk;
 }
 
-/*
+
 .wrapper {
     margin: auto;
     position: absolute;
     justify-content: center;
 }
-*/
+
+.thisUserTurn {
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
 
 header,
 nav,
@@ -78,14 +83,14 @@ p {
 }
 
 .container {
-    float: left;
+    /*float: left;*/
     height: 600px;
     width: 600px;
     position: relative;
-    margin-top: 10px;
+    /* margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 10%;
-    margin-right: 10%;
+    margin-right: 10%;*/
     /*    border: 2px white ridge;*/
 }
 
@@ -275,13 +280,7 @@ p {
 */
 
 /*Roll dice's image sizing and settings.*/
-/*.diceImg {
-    margin-left: 35%;
-    margin-right: 35%;
-    padding: 15px;
-    height: 20%;
-    width: 20%;
-}*/
+
 .diceImg {
     height: 50px;
     width: 50px;
@@ -303,7 +302,7 @@ p {
 #r10,
 #r13,
 #r16 {
-    background-color: red;
+    background-color: #ff00004d;
 }
 
 /* Blue steps for blue player's house*/
@@ -313,7 +312,7 @@ p {
 #b10,
 #b13,
 #b16 {
-    background-color: blue;
+    background-color: #0000ff4d;
 }
 
 /* Yellow steps for yellow player's house*/
@@ -323,7 +322,7 @@ p {
 #y10,
 #y13,
 #y16 {
-    background-color: yellow;
+    background-color: #ffff004d;
 }
 
 
@@ -334,9 +333,10 @@ p {
 #g10,
 #g13,
 #g16 {
-    background-color: green;
+    background-color: #0080004d;
 }
 
+/*Red token */
 .redtoken {
     background-image: url(../img/red.png);
     background-repeat: no-repeat;
@@ -344,6 +344,7 @@ p {
     background-size: contain;
 }
 
+/*Blue token */
 .bluetoken {
     background-image: url(../img/blue.png);
     background-repeat: no-repeat;
@@ -351,6 +352,7 @@ p {
     background-size: contain;
 }
 
+/*Green token */
 .greentoken {
     background-image: url(../img/green.png);
     background-repeat: no-repeat;
@@ -358,6 +360,7 @@ p {
     background-size: contain;
 }
 
+/*Yellow token */
 .yellowtoken {
     background-image: url(../img/yellow.png);
     background-repeat: no-repeat;
