@@ -1,25 +1,38 @@
+var randnum = undefined
+var moveArray = ["r", "b", "y", "g"]
+var enteringInderx = 15
+
 $(document).ready(function () {
     //Creating step boxes with unquie IDs
     for (var i = 0; i < 18; i++) {
-        $(".box1").append('<div class="step" id="b' + i + '"></div>');
+        $(".box1").append('<div class="step box" id="b' + i + '"></div>');
 
-        $(".box2").prepend('<div class="step2"  id="y' + i + '"></div>');
+        $(".box2").prepend('<div class="step2 box"  id="y' + i + '"></div>');
 
-        $(".box3").prepend('<div class="step"   id="g' + i + '"></div>');
+        $(".box3").prepend('<div class="step box"   id="g' + i + '"></div>');
 
-        $(".box4").append('<div class="step2"  id="r' + i + '"></div>');
+        $(".box4").append('<div class="step2 box"  id="r' + i + '"></div>');
 
     }
-    $(".redtoken").click(function () {
-        $(this).removeClass("redtoken")
+    $(".box").click(function () {
+        pegMove($(this).attr("class").split(" ")[2], $(this).attr("id"));
 
-        $("#r5").addClass("redtoken")
-    });
-    $(".bluetoken").click(function () {
-        $(this).removeClass("redtoken")
+    })
 
-        $("#b5").addClass("redtoken")
+    /*Move token red*/
+    $(".player").click(function () {
+        /*check if this avtive player */
+        if ($(this).parent().parent().hasClass("thisUserTurn")) {
+            var kushv = $(this).attr("class").split(" ")[0];
+            var firstLetter = $(this).attr("class").split("")[0]
+            $(this).removeClass(kushv);
+            $("#" + firstLetter + "5").addClass(kushv);
+        } else {
+            alert("Please roll dice first.");
+        }
     });
+
+
 });
 
 /*function posNum(e) {
@@ -37,76 +50,156 @@ $(document).ready(function () {
 }*/
 
 function randomNumber() {
-    //Generating a random dice roll value.
-    var randnum = Math.round(Math.random() * 6) + 1;
-
-    //Changing pictures as per the random number value.
-    switch (randnum) {
-        case 1:
-            $(".diceImg").attr("src", "img/d1.png");
-            break;
-        case 2:
-            $(".diceImg").attr("src", "img/d2.png");
-            break;
-        case 3:
-            $(".diceImg").attr("src", "img/d3.png");
-            break;
-        case 4:
-            $(".diceImg").attr("src", "img/d4.png");
-            break;
-        case 5:
-            $(".diceImg").attr("src", "img/d5.png");
-            break;
-        case 6:
-            $(".diceImg").attr("src", "img/d6.png");
-            break;
-    }
-
-    /*IF randnum is = 6 then */
-    if (randnum == 6) {
+    if ($(".diceImg").attr("src") == "img/d6.png") {
         $(".innerbox").each(function () {
             if ($(this).hasClass("thisUserTurn")) {
+                var currId = $(this).attr("class").split("")[0] + "5";
 
-                console.log($(this).attr("class"))
-                alert("Please (" +
-                    $(this).attr("class").split(" ")[0] + ")  move you token ")
-            }
+                if ($("#" + currId).attr("class").split(" ").length > 1) {
+                    randnum = Math.round(Math.random() * 5) + 1;
 
-        })
-
-    } else {
-        $(".innerbox").each(function (index) {
-            console.log($(this).hasClass("thisUserTurn"))
-            if ($(this).hasClass("thisUserTurn")) {
-
-                $(this).removeClass("thisUserTurn")
-
-                var index = $(this).index(); //3
-                var nextIndex = index + 1; //4
-
-                /*console.log(index)
-console.log(nextIndex)*/
-
-                if (nextIndex < 4) {
-                    $(".innerbox").each(function (index) {
-                        if ($(this).index() == nextIndex) {
-                            $(this).addClass("thisUserTurn")
-                            return false;
-                        }
-                    })
+                    //Changing pictures as per the random number value.
+                    switch (randnum) {
+                        case 1:
+                            $(".diceImg").attr("src", "img/d1.png");
+                            break;
+                        case 2:
+                            $(".diceImg").attr("src", "img/d2.png");
+                            break;
+                        case 3:
+                            $(".diceImg").attr("src", "img/d3.png");
+                            break;
+                        case 4:
+                            $(".diceImg").attr("src", "img/d4.png");
+                            break;
+                        case 5:
+                            $(".diceImg").attr("src", "img/d5.png");
+                            break;
+                        case 6:
+                            $(".diceImg").attr("src", "img/d6.png");
+                            break;
+                    }
                 } else {
-                    $(".innerbox").each(function (index) {
-                        if ($(this).index() == 0) {
-                            $(this).addClass("thisUserTurn")
-                            return false;
-                        }
-                    })
+                    alert("Please move a peg ")
                 }
 
-                return false;
             }
+
         })
+    } else {
 
+        //Generating a random dice roll value.
+        randnum = Math.round(Math.random() * 5) + 1;
 
+        //Changing pictures as per the random number value.
+        switch (randnum) {
+            case 1:
+                $(".diceImg").attr("src", "img/d1.png");
+                break;
+            case 2:
+                $(".diceImg").attr("src", "img/d2.png");
+                break;
+            case 3:
+                $(".diceImg").attr("src", "img/d3.png");
+                break;
+            case 4:
+                $(".diceImg").attr("src", "img/d4.png");
+                break;
+            case 5:
+                $(".diceImg").attr("src", "img/d5.png");
+                break;
+            case 6:
+                $(".diceImg").attr("src", "img/d6.png");
+                break;
+        }
+
+        /*IF randnum is = 6 then */
+        if (randnum == 6) {
+            $(".innerbox").each(function () {
+                if ($(this).hasClass("thisUserTurn")) {
+
+                }
+                var check = function () {
+                    if ($("r5").hasClass("redtokken")) {
+                        alert("Please select you token")
+                    } else {
+                        setTimeout(check, 1000);
+                    }
+                }
+
+            })
+
+        } else {
+            $(".innerbox").each(function (index) {
+                if ($(this).hasClass("thisUserTurn")) {
+
+                    $(this).removeClass("thisUserTurn")
+
+                    var index = $(this).index(); //3
+                    var nextIndex = index + 1; //4
+
+                    /*console.log(index)
+    console.log(nextIndex)*/
+
+                    if (nextIndex < 4) {
+                        $(".innerbox").each(function (index) {
+                            if ($(this).index() == nextIndex) {
+                                $(this).addClass("thisUserTurn")
+                                return false;
+                            }
+                        })
+                    } else {
+                        $(".innerbox").each(function (index) {
+                            if ($(this).index() == 0) {
+                                $(this).addClass("thisUserTurn")
+                                return false;
+                            }
+                        })
+                    }
+                    return false;
+                }
+            })
+        }
     }
+}
+/*Peg Increment*/
+
+function pegMove(token, position) {
+    console.log("rndom", randnum);
+    console.log("token", token);
+    console.log("Token position", position);
+    var newPostion = parseInt(randnum * 3) + parseInt(position.match(/\d/g).join(""))
+    console.log(newPostion)
+    $("#" + position).removeClass(token);
+    $(".innerbox").each(function (index) {
+        if ($(this).hasClass("thisUserTurn")) {
+            console.log($(this).attr("class"));
+            console.log($(this).attr("class").split("")[0])
+            var firstLetter = $(this).attr("class").split("")[0]
+            var newPostionId = firstLetter + newPostion;
+            console.log(newPostionId)
+            if (newPostion > 17) {
+                var currPegIndex = moveArray.indexOf(firstLetter) // 0,1,2,3
+                if (currPegIndex >= 3) {
+                    var nextPegBox = moveArray[0] // r
+                } else {
+                    var nextPegBox = moveArray[currPegIndex + 1] // r
+                }
+
+                var extraPositionValue = newPostion - 17;
+                console.log(extraPositionValue)
+                var nextBoxMovingIndex = nextPegBox + (18 - extraPositionValue);
+
+                console.log(nextBoxMovingIndex);
+                $("#" + nextBoxMovingIndex).addClass(token);
+
+            } else {
+                $("#" + newPostionId).addClass(token);
+            }
+        }
+
+    });
+
+    /* $("#" + newPostion).addClass*/
+
 }

@@ -13,6 +13,7 @@ body {
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    opacity: 1 !important;
 }
 
 header,
@@ -99,6 +100,8 @@ p {
     height: 35%;
     width: 35%;
     position: absolute;
+    opacity: 0.5;
+
 }
 
 /*Settings for the red box.*/
@@ -288,8 +291,8 @@ p {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: -21px;
+
     background-color: #fff;
     margin: auto;
     border-radius: 10px;
@@ -302,7 +305,7 @@ p {
 #r10,
 #r13,
 #r16 {
-    background-color: #ff00004d;
+    background-color: #ff00009e;
 }
 
 /* Blue steps for blue player's house*/
@@ -312,7 +315,7 @@ p {
 #b10,
 #b13,
 #b16 {
-    background-color: #0000ff4d;
+    background-color: #0000ff78;
 }
 
 /* Yellow steps for yellow player's house*/
@@ -322,7 +325,7 @@ p {
 #y10,
 #y13,
 #y16 {
-    background-color: #ffff004d;
+    background-color: #ffff0099;
 }
 
 
@@ -333,11 +336,14 @@ p {
 #g10,
 #g13,
 #g16 {
-    background-color: #0080004d;
+    background-color: #00800091;
 }
 
 /*Red token */
-.redtoken {
+.redtoken1,
+.redtoken2,
+.redtoken3,
+.redtoken4 {
     background-image: url(../img/red.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -345,24 +351,33 @@ p {
 }
 
 /*Blue token */
-.bluetoken {
+.bluetoken1,
+.bluetoken2,
+.bluetoken3,
+.bluetoken4 {
     background-image: url(../img/blue.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
-/*Green token */
-.greentoken {
-    background-image: url(../img/green.png);
+/*Yellow token */
+.yellowtoken1,
+.yellowtoken2,
+.yellowtoken3,
+.yellowtoken4 {
+    background-image: url(../img/yellow.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
-/*Yellow token */
-.yellowtoken {
-    background-image: url(../img/yellow.png);
+/*Green token */
+.greentoken1,
+.greentoken2,
+.greentoken3,
+.greentoken4 {
+    background-image: url(../img/green.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
